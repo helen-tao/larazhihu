@@ -14,8 +14,13 @@ class ViewQuestionsTest extends TestCase
      */
     public function testUserCanViewQuestions()
     {
-        $response = $this->get('/questions');
+        // 0. 抛出异常
+        $this->withoutExceptionHandling();
 
-        $response->assertStatus(200);
+        // 1. 访问链接 questions
+        $test = $this->get('/questions');
+
+        // 2. 正常返回 200
+        $test->assertStatus(200);
     }
 }
